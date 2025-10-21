@@ -1,10 +1,13 @@
 import torch
-# import torchvision
+from torchvision.models import resnet18, ResNet18_Weights
 
-data = [[1,2], [3,4]]
-x_data = torch.tensor(data)
-x_ones = torch.ones_like(x_data)
-x_random = torch.rand(4,3)
-print(f"Tensor data: \n {x_data} \n")
-print(f"Ones tensor \n {x_ones} \n")
-print(f"Random tensor \n {x_random} \n")
+model = resnet18(weights=ResNet18_Weights.DEFAULT)
+data = torch.rand(1, 3, 64, 64)
+labels = torch.rand(1, 1000)
+
+prediction = model(data) # forward pass
+loss = (prediction - labels).sum()
+loss.backward() # backward pass
+
+optim = torch.optim.SGD(model.parameters(), lr=1e-2, momentum=0.9)
+optim.step()
