@@ -22,8 +22,8 @@ t4 = torch.tensor([[3,5],[2,5]])
 # matrix multiplication of tensors
 matrix_mult = t3.matmul(t4)
 matrix_mult_2 = t3 @ t4
-# print(matrix_mult)
-# print(matrix_mult_2)
+print(matrix_mult)
+print(matrix_mult_2)
 
 
 # in place operations on tensors: These are operations that have a '_' suffix
