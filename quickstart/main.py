@@ -12,7 +12,7 @@ training_data = datasets.FashionMNIST(
 )
 
 # download training data from opening datasets
-test_data = datasets.FashionMNIST(
+test_data = datasets.FashionMNIST( 
     root="data",
     train=False,
     download=True,
